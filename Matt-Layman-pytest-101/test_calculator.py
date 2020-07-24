@@ -22,8 +22,13 @@ def test_divide():
     result = calculator.division(9, 3)
     assert result == 3
 
-def test_add_weird_stuff():
+# def test_add_weird_stuff():
+#     calculator = Calculator()
+#     with pytest.raises(CalculatorError) as context:
+#         result = calculator.add("two", "three")
+#     assert str(context.value) == "random value"
+
+def test_divide_by_zero():
     calculator = Calculator()
-    with pytest.raises(CalculatorError) as context:
-        result = calculator.add("two", "three")
-    assert str(context.value) == "random value"    
+    with pytest.raises(CalculatorError):
+        result = calculator.division(9, 0)

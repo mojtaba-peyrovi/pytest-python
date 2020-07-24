@@ -101,11 +101,26 @@ E         - random value
 E         + "two" is not a real number
 
 
+We added a more code to the calculator to have a simple userface. Then we encounter division by zero error. 
+Now we want to reproduce this error by writing a test. 
 
+Here is the test:
+```python 
+def test_divide_by_zero():
+    calculator = Calculator()
+    with pytest.raises(CalculatorError):
+        result = calculator.division(9, 0)
+```
+and we need to write error handling for the division() method:
+```python 
+def division(seld, a, b):
+        try:
+            return a / b
+        except ZeroDivisionError:
+            raise CalculatorError("Can't divide by zero")   
+```
 
-
-
-test_calculator.py:29: AssertionError
+END OF THE VIDEO
 
 
 
